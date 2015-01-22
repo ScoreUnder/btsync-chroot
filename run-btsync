@@ -6,4 +6,5 @@ if ! [ -e btsync_chroot/proc/stat ]; then
     echo Mounted /proc inside the chroot. YOU WILL NEED TO UNMOUNT THIS IF YOU WANT TO DELETE IT.
     echo
 fi
+install -m444 /etc/resolv.conf btsync_chroot/etc/resolv.conf
 chroot --userspec nobody:nobody btsync_chroot /var/lib/btsync/btsync

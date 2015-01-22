@@ -24,6 +24,8 @@ for f in ld-2.20.so libcrypt.so.1 libc.so.6 libdl.so.2 libm.so.6 libpthread.so.0
 done
 ln -s -- ld-2.20.so "$dir/lib/ld-linux-x86-64.so.2"
 
+mkdir -- "$dir/etc"
+
 mkdir -- "$dir/proc"
 
 mkdir -p -- "$dir/var/lib/btsync"
