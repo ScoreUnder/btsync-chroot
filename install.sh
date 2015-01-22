@@ -17,7 +17,7 @@ mkdir -- "$dir/dev"
     for dev in null zero random urandom; do
         mknod -- "$dir/dev/$dev" c $(cat /sys/devices/virtual/mem/$dev/dev) || exit
     done
-)
+) || exit
 
 for f in ld-2.20.so libcrypt.so.1 libc.so.6 libdl.so.2 libm.so.6 libpthread.so.0 librt.so.1; do
     cp -- "/lib/$f" "$dir/lib" || exit
