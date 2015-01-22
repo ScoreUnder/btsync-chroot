@@ -1,0 +1,9 @@
+#!/bin/sh
+[ -d btsync_chroot ] || cd "$(dirname "$0")"
+[ -d btsync_chroot ] || { echo Where the fuck is the btsync_chroot/ dir >&2; exit 1; }
+if ! [ -e btsync_chroot/proc/stat ]; then
+    mount -t proc proc btsync_chroot/proc || exit
+    echo Mounted /proc inside the chroot. YOU WILL NEED TO UNMOUNT THIS IF YOU WANT TO DELETE IT.
+    echo
+fi
+chroot --userspec nobody:nobody btsync_chroot /var/lib/btsync/btsync
